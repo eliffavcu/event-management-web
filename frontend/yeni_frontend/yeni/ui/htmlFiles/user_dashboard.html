@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>User Dashboard - EventSphere</title>
+  <meta content="Manage your EventSphere account" name="description">
+  <meta content="account, profile, events, dashboard" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS Files -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+
+  <style>
+    .dashboard-section {
+      background: url("/assets/img/dashboardBackground.jpg") center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 120px 0 60px;
+      min-height: calc(100vh - 72px);
+      position: relative;
+    }
+    
+    .dashboard-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .profile-card {
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .profile-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 30px;
+      position: relative;
+    }
+    
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .profile-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    
+    .profile-email {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    
+    .profile-body {
+      padding: 30px;
+      background: white;
+    }
+    
+    .info-item {
+      margin-bottom: 20px;
+    }
+    
+    .info-label {
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 5px;
+    }
+    
+    .info-value {
+      color: #6c757d;
+    }
+    
+    .dashboard-title {
+      color: white;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    
+    .events-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      height: 100%;
+    }
+    
+    .events-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 22px;
+    }
+    
+    .event-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .event-item:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .event-item:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .event-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+      font-size: 18px;
+    }
+    
+    .event-info {
+      font-size: 14px;
+      color: #6c757d;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .event-info i {
+      margin-right: 8px;
+      color: var(--primary-color);
+      font-size: 16px;
+    }
+    
+    .event-item .btn {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+    
+    .no-events {
+      text-align: center;
+      padding: 30px 0;
+    }
+    
+    .no-events i {
+      font-size: 50px;
+      color: #dee2e6;
+      margin-bottom: 15px;
+    }
+    
+    .no-events h5 {
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1>EventSphere</h1>
+        <span>.</span>
+      </a>
+
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/#symposium">Symposium</a></li>
+          <li><a href="/#festival">Festival</a></li>
+          <li><a href="/#workshop">Workshop</a></li>
+          <li><a href="/#conference">Conference</a></li>
+          <li><a href="/#seminar">Seminar</a></li>
+          <li><a href="/#concert">Concert</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- Account Dropdown -->
+      <div class="dropdown account-dropdown">
+        <button class="btn btn-account dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person-circle me-1"></i>
+          <span id="user-name">Your Account</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+          <li><a class="dropdown-item active" href="/htmlFiles/user_dashboard.html">My Account</a></li>
+          <li><a class="dropdown-item" href="#" id="logout-button">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Dashboard Section ======= -->
+  <section class="dashboard-section">
+    <div class="container">
+      <h2 class="dashboard-title text-center">My Dashboard</h2>
+      
+      <div class="row">
+        <!-- Profile Info Card -->
+        <div class="col-lg-4">
+          <div class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <img src="/assets/img/user-placeholder.jpg" alt="Profile" id="profile-image">
+              </div>
+              <h2 class="profile-name" id="profile-name">Loading...</h2>
+              <p class="profile-email" id="profile-email">Loading...</p>
+            </div>
+            <div class="profile-body">
+              <div class="info-item">
+                <div class="info-label">Name</div>
+                <div class="info-value" id="profile-fullname">Loading...</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Age</div>
+                <div class="info-value" id="profile-age">Loading...</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Birthday</div>
+                <div class="info-value" id="profile-birthday">Loading...</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Telephone</div>
+                <div class="info-value" id="profile-telephone">Loading...</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value" id="profile-email-info">Loading...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Registered Events -->
+        <div class="col-lg-8">
+          <div class="events-card">
+            <h3>My Registered Events</h3>
+            <div id="events-container">
+              <!-- Events will be loaded here -->
+              <div class="no-events" id="no-events">
+                <i class="bi bi-calendar-x"></i>
+                <h5>You haven't registered for any events yet</h5>
+                <p>Browse events and register to see them here</p>
+                <a href="/" class="btn btn-primary mt-3">Browse Events</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Dashboard Section -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+  <!-- Dashboard JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+      const userType = localStorage.getItem('userType');
+      const userId = localStorage.getItem('userId'); // Retrieve userId from localStorage
+
+      if (!isLoggedIn || userType !== 'normal' || !userId) {
+        window.location.href = '/htmlFiles/login.html';
+      }
+
+      // Load user profile data
+      loadUserProfile(userId);
+
+      // Load attended events
+      loadAttendedEvents(userId);
+
+      // Logout functionality
+      document.getElementById('logout-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.href = '/';
+      });
+    });
+
+    function loadUserProfile(userId) {
+      const apiUrl = `http://localhost:5000/api/users/${userId}?action=get`;
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(apiResponse => {
+          if (apiResponse.status === "success") {
+            const userData = apiResponse.data;
+            updateProfileUI(userData);
+          } else {
+            console.error("Failed to load user profile:", apiResponse.message);
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching user profile:", error);
+          alert("An error occurred while fetching user profile. Please try again later.");
+        });
+    }
+
+    function loadAttendedEvents(userId) {
+      const apiUrl = `http://localhost:5000/api/attendances?action=list`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(apiResponse => {
+          if (apiResponse.status === "success") {
+            const attendances = apiResponse.data;
+            const userAttendances = attendances.filter(attendance => attendance.user_id == userId);
+            updateAttendedEventsUI(userAttendances);
+          } else {
+            console.error("Failed to load attendances:", apiResponse.message);
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching attendances:", error);
+          alert("An error occurred while fetching attended events. Please try again later.");
+        });
+    }
+
+    function updateAttendedEventsUI(attendances) {
+      const eventsContainer = document.getElementById('events-container');
+      const noEventsElement = document.getElementById('no-events');
+
+      if (attendances && attendances.length > 0) {
+        noEventsElement.style.display = 'none';
+        attendances.forEach(attendance => {
+          const eventItem = `
+            <div class="event-item" id="attendance-${attendance.attendance_id}">
+              <h4 class="event-title">${attendance.event_name}</h4>
+              <div class="event-info">
+                <i class="bi bi-calendar"></i>
+                <span>Attending Date: ${new Date(attendance.attending_date).toLocaleDateString()}</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <a href="/htmlFiles/event_details.html?event_id=${attendance.event_id}" class="btn btn-primary btn-sm">View Event</a>
+                <button class="btn btn-danger btn-sm" onclick="deleteAttendance(${attendance.attendance_id})">Delete</button>
+              </div>
+            </div>
+          `;
+          eventsContainer.insertAdjacentHTML('beforeend', eventItem);
+        });
+      } else {
+        noEventsElement.style.display = 'block';
+      }
+    }
+
+    function deleteAttendance(attendanceId) {
+      const apiUrl = `http://localhost:5000/api/attendances/${attendanceId}?action=delete`;
+
+      if (confirm("Are you sure you want to delete this attendance?")) {
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(apiResponse => {
+            if (apiResponse.status === "success") {
+              alert(apiResponse.message);
+              document.getElementById(`attendance-${attendanceId}`).remove();
+
+              // Check if there are no more events and show the "No events" message
+              const eventsContainer = document.getElementById('events-container');
+              if (!eventsContainer.querySelector('.event-item')) {
+                document.getElementById('no-events').style.display = 'block';
+              }
+            } else {
+              alert(apiResponse.message || "Failed to delete attendance. Please try again.");
+            }
+          })
+          .catch(error => {
+            console.error("Error deleting attendance:", error);
+            alert("An error occurred while deleting attendance. Please try again.");
+          });
+      }
+    }
+
+    function updateProfileUI(user) {
+      document.getElementById('profile-name').textContent = `${user.user_name} ${user.user_surname}`;
+      document.getElementById('profile-email').textContent = user.user_email;
+      document.getElementById('profile-fullname').textContent = `${user.user_name} ${user.user_surname}`;
+      document.getElementById('profile-age').textContent = user.user_age;
+      document.getElementById('profile-birthday').textContent = new Date(user.user_birthday).toLocaleDateString();
+      document.getElementById('profile-telephone').textContent = user.user_telephone;
+      document.getElementById('profile-email-info').textContent = user.user_email;
+
+      // Set a random culture-related image as the profile picture
+      document.getElementById('profile-image').src = "https://source.unsplash.com/featured/?culture";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  --primary-color: #0ea2bd;
+  --secondary-color: #0b2341;
+  --accent-color: #f68c09;
+}
+
+/*--------------------------------------------------------------
+# Background & Hero
+--------------------------------------------------------------*/
+.index-page #hero {
+  background: url("/assets/img/mainBackground.jpg") center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 160px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.index-page #hero:before {
+  content: '';
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.index-page #hero h2 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.index-page #hero p {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+/*--------------------------------------------------------------
+# Header & Navigation
+--------------------------------------------------------------*/
+.header .btn-login,
+.header .btn-register {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-login {
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid var(--primary-color);
+}
+
+.header .btn-register {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+.header .btn-login:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.header .btn-register:hover {
+  background: #0c8da0;
+}
+
+.btn-account {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-account:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+@media (max-width: 1279px) {
+  .header-buttons {
+    display: none !important;
+  }
+
+  .navmenu {
+    padding: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Events Section
+--------------------------------------------------------------*/
+.events {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.event-category {
+  margin-bottom: 80px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.category-header {
+  position: relative;
+}
+
+.category-image {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.category-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.category-description {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.event-card {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  height: 100%;
+  border-left: 5px solid var(--primary-color);
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.event-info {
+  padding: 25px 20px;
+}
+
+.event-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.event-info p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+.event-info i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.event-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 15px;
+  border-radius: 50px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.event-btn:hover {
+  background: #0c8da0;
+  color: #fff;
+}
+
+/* Different color accents for each category */
+#symposium .event-card {
+  border-left: 5px solid #4e6bff;
+}
+
+#festival .event-card {
+  border-left: 5px solid #ff6b4e;
+}
+
+#workshop .event-card {
+  border-left: 5px solid #4ebd8b;
+}
+
+#conference .event-card {
+  border-left: 5px solid #a34eff;
+}
+
+#seminar .event-card {
+  border-left: 5px solid #ffbe4e;
+}
+
+#concert .event-card {
+  border-left: 5px solid #ff4e7c;
+}
+
+/*--------------------------------------------------------------
+# Event Details Page
+--------------------------------------------------------------*/
+.event-details {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.event-details .card {
+  border: none;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.event-details .card-title {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.event-details .info-item {
+  margin-bottom: 20px;
+}
+
+.event-details .info-item i {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-right: 15px;
+}
+
+.event-details .info-item h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.event-details .info-item p {
+  margin: 5px 0 0 0;
+  color: #6c757d;
+}
+
+.event-details .badge {
+  font-size: 14px;
+  padding: 7px 15px;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: none;
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f5ff;
+}
+
+.dropdown-item.active {
+  background-color: var(--primary-color);
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media (max-width: 992px) {
+  .index-page #hero h2 {
+    font-size: 36px;
+  }
+  
+  .category-heading {
+    font-size: 28px;
+  }
+  
+  .category-image {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-page #hero h2 {
+    font-size: 28px;
+  }
+  
+  .index-page #hero {
+    padding: 140px 0 60px;
+  }
+  
+  .category-heading {
+    font-size: 24px;
+  }
+  
+  .event-category {
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+
+  .category-image {
+    height: 180px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Footer kaldırıldı */
+.footer {
+  display: none !important;
+}
+
+/* Sayfanın alt boşluğunu artırma */
+main {
+  margin-bottom: 40px;
+}

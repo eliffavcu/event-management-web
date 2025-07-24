@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EventSphere - Find Events Near You</title>
+  <meta content="Discover and join exciting events in your area" name="description">
+  <meta content="events, symposium, festival, workshop, conference, seminar, concert" name="keywords">
+
+  <!-- Favicons (using mainBackground.jpg as favicon and apple-touch-icon) -->
+  <link href="/assets/img/mainBackground.jpg" rel="icon" type="image/jpeg">
+  <link href="/assets/img/mainBackground.jpg" rel="apple-touch-icon" type="image/jpeg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1>EventSphere</h1>
+        <span>.</span>
+      </a>
+
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#symposium" class="active">Symposium</a></li>
+          <li><a href="#festival">Festival</a></li>
+          <li><a href="#workshop">Workshop</a></li>
+          <li><a href="#conference">Conference</a></li>
+          <li><a href="#seminar">Seminar</a></li>
+          <li><a href="#concert">Concert</a></li>
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+<div class="header-buttons d-flex align-items-center">
+  <!-- for non-logged-in users -->
+  <a href="/htmlFiles/login.html" class="btn-login" id="login-button">Login</a>
+  <a href="/htmlFiles/register.html" class="btn-register ms-3" id="register-button">Register</a>
+  
+  <!-- for logged-in users -->
+  <div class="dropdown account-dropdown d-none" id="account-dropdown">
+    <button class="btn btn-account dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-circle me-1"></i>
+      <span id="user-name">Your Account</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+      <li id="user-dashboard-link"><a class="dropdown-item" href="/htmlFiles/user_dashboard.html">My Account</a></li>
+      <li id="organizator-dashboard-link" class="d-none"><a class="dropdown-item" href="/htmlFiles/organizator_dashboard.html">Organizator Panel</a></li>
+      <li><a class="dropdown-item" href="#" id="logout-button">Logout</a></li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-7 col-lg-8 d-flex flex-column justify-content-center align-items-stretch">
+          <div class="hero-content" data-aos="fade-up">
+            <h2>Discover Amazing Events Near You</h2>
+            <p>From intellectual symposiums to vibrant concerts, find the perfect events to match your interests.</p>
+            <div class="hero-btn">
+              <a href="#events" class="btn-get-started">Browse Events</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Events For You</h2>
+          <p>Discover and join exciting events happening around you</p>
+        </div>
+
+        <!-- Symposium Section -->
+        <div id="symposium" class="event-category">
+          <div class="category-header">
+            <div class="row align-items-center">
+              <div class="col-lg-4">
+                <img src="/assets/img/categories/symposium.jpg" class="img-fluid category-image" alt="Symposium Events">
+              </div>
+              <div class="col-lg-8">
+                <h3 class="category-heading">Symposium</h3>
+                <p class="category-description">It aims to teach new information to the audience by addressing academic subjects from various aspects with experts in the field.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row gy-4 mt-4">
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="event-card">
+                <div class="event-info">
+                  <h4>Medical Technology Symposium</h4>
+                  <p><i class="bi bi-calendar"></i> June 15, 2025</p>
+                  <p><i class="bi bi-geo-alt"></i> Medical Research Center</p>
+                  <p><i class="bi bi-card-text"></i> A gathering of healthcare professionals discussing the latest advancements in medical technology.</p>
+                  <a href="/event_details.html" class="event-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="event-card">
+                <div class="event-info">
+                  <h4>Annual AI Ethics Symposium</h4>
+                  <p><i class="bi bi-calendar"></i> July 3, 2025</p>
+                  <p><i class="bi bi-geo-alt"></i> Tech Conference Hall</p>
+                  <p><i class="bi bi-card-text"></i> Exploring ethical implications and responsible development of artificial intelligence.</p>
+                  <a href="/event_details.html" class="event-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="event-card">
+                <div class="event-info">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Festival Section -->
+        <div id="festival" class="event-category">
+          <div class="category-header">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+              </div>
+              <div class="col-lg-4">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row gy-4 mt-4">
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="event-card">
+              </div>
+            </div>
+            
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            </div>
+            
+            <!-- Event Item -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop Section -->
+        <div id="workshop" class="event-category">
+          <div class="category-header">
+          </div>
+        </div>
+      </div>
+    </section><!-- End Events Section -->
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    const userType = localStorage.getItem('userType');
+    const userName = localStorage.getItem('userName') || 'Your Account';
+
+    if (isLoggedIn) {
+      // Hide login and register buttons
+      document.getElementById('login-button').classList.add('d-none');
+      document.getElementById('register-button').classList.add('d-none');
+
+      // Show account dropdown
+      const accountDropdown = document.getElementById('account-dropdown');
+      accountDropdown.classList.remove('d-none');
+      document.getElementById('user-name').textContent = userName;
+
+      // Update dashboard link based on user type
+      if (userType === 'organizator') {
+        document.getElementById('user-dashboard-link').classList.add('d-none');
+        document.getElementById('organizator-dashboard-link').classList.remove('d-none');
+      } else {
+        document.getElementById('organizator-dashboard-link').classList.add('d-none');
+        document.getElementById('user-dashboard-link').classList.remove('d-none');
+      }
+
+      // Logout functionality
+      document.getElementById('logout-button').addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.reload();
+      });
+    }
+
+    // Load events dynamically
+    loadEventsFromBackend();
+  });
+
+  function loadEventsFromBackend() {
+    fetch("http://localhost:5000/api/events?action=list")
+      .then(response => response.json())
+      .then(apiResponse => {
+        if (apiResponse.status === "success") {
+          const events = apiResponse.data;
+          
+          // Category descriptions from the original HTML
+          const categoryDescriptions = {
+            "Symposium": "It aims to teach new information to the audience by addressing academic subjects from various aspects with experts in the field.",
+            "Festival": "If you want to learn about cultures and traditions in a fun way, this event is for you.",
+            "Workshop": "Knowledge comes from experience. Attend workshops to understand this better.",
+            "Conference": "Do you want to gain new information? Don't miss our conferences hosted by experts in the field.",
+            "Seminar": "It is normal to have questions in your mind while learning new information. The important thing is to ensure that they are resolved by attending the seminar.",
+            "Concert": "Music is food for the soul. Don't miss this concert to clear your mind and forget about tomorrow for a moment."
+          };
+          
+          // Group events by category
+          const eventsByCategory = {};
+          events.forEach(event => {
+            const categoryName = event.event_type_name;
+            if (!eventsByCategory[categoryName]) {
+              eventsByCategory[categoryName] = [];
+            }
+            eventsByCategory[categoryName].push(event);
+          });
+          
+          // Get the events container
+          const eventsContainer = document.querySelector('#events .container');
+          
+          // Clear existing content after the header
+          const sectionHeader = eventsContainer.querySelector('.section-header');
+          while (eventsContainer.lastChild !== sectionHeader) {
+            eventsContainer.removeChild(eventsContainer.lastChild);
+          }
+          
+          // Add each category section
+          Object.keys(categoryDescriptions).forEach((categoryName, index) => {
+            const events = eventsByCategory[categoryName] || [];
+            
+            // Determine layout based on index (alternate the layout)
+            const isAlternate = index % 2 !== 0;
+            
+            // Create category section
+            const categorySection = document.createElement('div');
+            categorySection.id = categoryName.toLowerCase();
+            categorySection.className = 'event-category';
+            
+            // Header with image and description
+            const headerHTML = `
+              <div class="category-header">
+                <div class="row align-items-center">
+                  ${isAlternate ? `
+                    <div class="col-lg-8">
+                      <h3 class="category-heading">${categoryName}</h3>
+                      <p class="category-description">${categoryDescriptions[categoryName]}</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="/assets/img/categories/${categoryName.toLowerCase()}.jpg" class="img-fluid category-image" alt="${categoryName} Events">
+                    </div>
+                  ` : `
+                    <div class="col-lg-4">
+                      <img src="/assets/img/categories/${categoryName.toLowerCase()}.jpg" class="img-fluid category-image" alt="${categoryName} Events">
+                    </div>
+                    <div class="col-lg-8">
+                      <h3 class="category-heading">${categoryName}</h3>
+                      <p class="category-description">${categoryDescriptions[categoryName]}</p>
+                    </div>
+                  `}
+                </div>
+              </div>
+            `;
+            
+            // Event cards
+            let eventsHTML = `<div class="row gy-4 mt-4">`;
+            
+            if (events.length === 0) {
+              eventsHTML += `<p class="text-center text-muted col-12">No events available in this category.</p>`;
+            } else {
+              events.forEach((event, eventIndex) => {
+                const eventDate = new Date(event.event_date).toLocaleDateString();
+                eventsHTML += `
+                  <div class="col-lg-4 col-md-6" data-aos="fade-up" ${eventIndex > 0 ? `data-aos-delay="${eventIndex * 100}"` : ''}>
+                    <div class="event-card">
+                      <div class="event-info">
+                        <h4>${event.event_name}</h4>
+                        <p><i class="bi bi-calendar"></i> ${eventDate} ${event.event_time || ''}</p>
+                        <p><i class="bi bi-geo-alt"></i> ${event.event_location || 'TBA'}</p>
+                        <p><i class="bi bi-card-text"></i> ${event.event_description || 'No description available.'}</p>
+                        <p><i class="bi bi-people"></i> Capacity: ${event.limit_for_attendance || 'Unlimited'}</p>
+                        <a href="/htmlFiles/event_details.html?event_id=${event.event_id}" class="event-btn">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              });
+            }
+            
+            eventsHTML += `</div>`;
+            
+            // Combine header and events
+            categorySection.innerHTML = headerHTML + eventsHTML;
+            eventsContainer.appendChild(categorySection);
+          });
+          
+          // Re-initialize AOS after dynamic content is loaded
+          if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+          }
+        } else {
+          console.error("Failed to load events:", apiResponse.message);
+        }
+      })
+      .catch(error => {
+        console.error("Error loading events:", error);
+      });
+  }
+</script>
+
+</body>
+
+</html>

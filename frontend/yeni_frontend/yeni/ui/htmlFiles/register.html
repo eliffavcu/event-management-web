@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register - EventSphere</title>
+  <meta content="Create an EventSphere account" name="description">
+  <meta content="register, events, account, signup" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+  
+  <style>
+    .register-section {
+      background: url("/assets/img/registerBackground.jpg") center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 120px 0 60px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .register-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    
+    .register-container {
+      background: rgba(255, 255, 255, 0.75); /* Opaklık daha da düşürüldü */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .register-heading {
+      margin-bottom: 20px;
+      color: #0b2341; /* Lacivert renk */
+      text-align: center;
+      font-weight: 700;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0b2341; /* Lacivert renk */
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+    
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .register-btn:hover {
+      background: #0c8da0;
+      transform: translateY(-3px);
+    }
+    
+    .register-type-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .register-type-btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      border-radius: 50px;
+      color: var(--primary-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .register-type-btn.active {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    
+    .login-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .login-link a {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    /* Form animations */
+    .form-section {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    
+    .form-section.active {
+      display: block;
+    }
+
+    .form-check-label {
+      color: #0b2341;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HomePage link */
+    .home-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+    
+    .home-link a {
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .home-link i {
+      margin-right: 5px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Removed the header with EventSphere title -->
+  
+  <!-- Added a simple home link instead -->
+  <div class="home-link">
+    <a href="/">
+      <i class="bi bi-arrow-left-circle"></i> Back to Home
+    </a>
+  </div>
+
+  <section class="register-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-10">
+          <div class="register-container" data-aos="fade-up">
+            <h2 class="register-heading">Create an Account</h2>
+            
+            <div class="register-type-selector">
+              <button type="button" id="normalBtn" class="register-type-btn active">Regular User</button>
+              <button type="button" id="OrganizatorBtn" class="register-type-btn">Organizator</button>
+            </div>
+            
+            <!-- Normal User Registration Form -->
+            <form id="normalForm" class="form-section active">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="normalName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="normalName" placeholder="Enter your name" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="normalSurname" class="form-label">Surname</label>
+                  <input type="text" class="form-control" id="normalSurname" placeholder="Enter your surname" required>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="normalAge" class="form-label">Age</label>
+                  <input type="number" class="form-control" id="normalAge" placeholder="Enter your age" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="normalBirthday" class="form-label">Birthday (YYYY-MM-DD)</label>
+                  <input type="text" class="form-control" id="normalBirthday" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="normalEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="normalEmail" placeholder="example@gmail.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="normalTelephone" class="form-label">Telephone</label>
+                <input type="tel" class="form-control" id="normalTelephone" placeholder="5554447777" required>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="normalPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="normalPassword" placeholder="Create a password" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="normalConfirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="normalConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+              </div>
+              
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="normalTerms" required>
+                <label class="form-check-label" for="normalTerms">
+                  I agree to the Terms and Conditions
+                </label>
+              </div>
+              
+              <button type="submit" class="register-btn">Register as User</button>
+            </form>
+            
+            <!-- Organizator Registration Form -->
+            <form id="OrganizatorForm" class="form-section">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="OrganizatorName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="OrganizatorName" placeholder="Enter your name" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="OrganizatorSurname" class="form-label">Surname</label>
+                  <input type="text" class="form-control" id="OrganizatorSurname" placeholder="Enter your surname" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="OrganizatorEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="OrganizatorEmail" placeholder="example@gmail.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="OrganizatorTelephone" class="form-label">Telephone</label>
+                <input type="tel" class="form-control" id="OrganizatorTelephone" placeholder="5554447777" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="OrganizatorLocation" class="form-label">Location</label>
+                <input type="text" class="form-control" id="OrganizatorLocation" placeholder="Enter your location" required>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="OrganizatorPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="OrganizatorPassword" placeholder="Create a password" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="OrganizatorConfirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="OrganizatorConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+              </div>
+              
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="OrganizatorTerms" required>
+                <label class="form-check-label" for="OrganizatorTerms">
+                  I agree to the Terms and Conditions
+                </label>
+              </div>
+              
+              <button type="submit" class="register-btn">Register as Organizator</button>
+            </form>
+            
+            <div class="login-link">
+              <p>Already have an account? <a href="/login.html">Log in here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  
+  <!-- Register Type Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const normalBtn = document.getElementById('normalBtn');
+      const OrganizatorBtn = document.getElementById('OrganizatorBtn');
+      const normalForm = document.getElementById('normalForm');
+      const OrganizatorForm = document.getElementById('OrganizatorForm');
+      
+      normalBtn.addEventListener('click', function() {
+        normalBtn.classList.add('active');
+        OrganizatorBtn.classList.remove('active');
+        normalForm.classList.add('active');
+        OrganizatorForm.classList.remove('active');
+      });
+      
+      OrganizatorBtn.addEventListener('click', function() {
+        OrganizatorBtn.classList.add('active');
+        normalBtn.classList.remove('active');
+        OrganizatorForm.classList.add('active');
+        normalForm.classList.remove('active');
+      });
+      
+      // Form validation for telephone input
+      const telephoneInputs = document.querySelectorAll('input[type="tel"]');
+      telephoneInputs.forEach(input => {
+        input.addEventListener('input', function() {
+          // Only allow numbers
+          this.value = this.value.replace(/[^0-9]/g, '');
+          
+          // Limit to 10 digits
+          if (this.value.length > 10) {
+            this.value = this.value.slice(0, 10);
+          }
+        });
+      });
+      
+      // Birthday format validation (YYYY-MM-DD)
+      const birthdayInput = document.getElementById('normalBirthday');
+      if (birthdayInput) {
+        birthdayInput.addEventListener('input', function(e) {
+          let value = e.target.value;
+          
+          // Remove any non-digit or non-hyphen characters
+          value = value.replace(/[^\d-]/g, '');
+          
+          // Format automatically as user types
+          if (value.length > 0) {
+            // Remove any existing hyphens
+            value = value.replace(/-/g, '');
+            
+            if (value.length > 4) {
+              value = value.substring(0, 4) + '-' + value.substring(4);
+            }
+            if (value.length > 7) {
+              value = value.substring(0, 7) + '-' + value.substring(7);
+            }
+            if (value.length > 10) {
+              value = value.substring(0, 10);
+            }
+          }
+          
+          e.target.value = value;
+        });
+        
+        // Additional validation on blur
+        birthdayInput.addEventListener('blur', function() {
+          const value = this.value;
+          const regex = /^\d{4}-\d{2}-\d{2}$/;
+          
+          if (value && !regex.test(value)) {
+            alert('Please enter date in YYYY-MM-DD format');
+            this.value = '';
+          } else if (value) {
+            // Validate if it's a proper date
+            const [year, month, day] = value.split('-').map(Number);
+            const date = new Date(year, month - 1, day);
+            
+            if (
+              date.getFullYear() !== year || 
+              date.getMonth() + 1 !== month || 
+              date.getDate() !== day
+            ) {
+              alert('Please enter a valid date');
+              this.value = '';
+            }
+          }
+        });
+      }
+      
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    });
+  </script>
+  
+  <!-- Registration Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const normalForm = document.getElementById('normalForm');
+      const organizatorForm = document.getElementById('OrganizatorForm');
+
+      // Handle normal user registration
+      normalForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const userData = {
+          action: 'create',
+          user_name: document.getElementById('normalName').value,
+          user_surname: document.getElementById('normalSurname').value,
+          user_age: document.getElementById('normalAge').value,
+          user_email: document.getElementById('normalEmail').value,
+          user_telephone: document.getElementById('normalTelephone').value,
+          user_birthday: document.getElementById('normalBirthday').value,
+          password: document.getElementById('normalPassword').value,
+        };
+
+        const queryString = new URLSearchParams(userData).toString();
+        const apiUrl = `http://localhost:5000/api/users?${queryString}`;
+
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(apiResponse => {
+            if (apiResponse.status === 'success') {
+              alert(apiResponse.message);
+              localStorage.setItem('userToken', apiResponse.data.token);
+              localStorage.setItem('userName', apiResponse.data.user_name);
+              localStorage.setItem('userEmail', apiResponse.data.user_email);
+              localStorage.setItem('userId', apiResponse.data.user_id);
+              localStorage.setItem('userType', 'normal');
+              localStorage.setItem('userLoggedIn', 'true');
+              window.location.href = '/htmlFiles/user_dashboard.html';
+            } else {
+              alert(apiResponse.message || 'Registration failed. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error during registration:', error);
+            alert('An error occurred while registering. Please try again.');
+          });
+      });
+
+      // Handle organizer registration
+      organizatorForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const organizatorData = {
+          action: 'create',
+          organizator_name: document.getElementById('OrganizatorName').value,
+          organizator_surname: document.getElementById('OrganizatorSurname').value,
+          organizator_email: document.getElementById('OrganizatorEmail').value,
+          organizator_telephone: document.getElementById('OrganizatorTelephone').value,
+          organization_location: document.getElementById('OrganizatorLocation').value,
+          password: document.getElementById('OrganizatorPassword').value,
+        };
+
+        const queryString = new URLSearchParams(organizatorData).toString();
+        const apiUrl = `http://localhost:5000/api/organizators?${queryString}`;
+
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(apiResponse => {
+            if (apiResponse.status === 'success') {
+              alert(apiResponse.message);
+              localStorage.setItem('userToken', apiResponse.data.token);
+              localStorage.setItem('userName', apiResponse.data.organizator_name);
+              localStorage.setItem('userEmail', apiResponse.data.organizator_email);
+              localStorage.setItem('userId', apiResponse.data.organizator_id);
+              localStorage.setItem('userType', 'organizator');
+              localStorage.setItem('userLoggedIn', 'true');
+              window.location.href = '/htmlFiles/organizator_dashboard.html';
+            } else {
+              alert(apiResponse.message || 'Registration failed. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error during registration:', error);
+            alert('An error occurred while registering. Please try again.');
+          });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Login - EventSphere</title>
+  <meta content="Log in to your EventSphere account" name="description">
+  <meta content="login, events, account" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+  
+  <style>
+    .login-section {
+      background: url("/assets/img/loginBackground.jpg") center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 120px 0 60px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .login-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    
+    .login-container {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-heading {
+      margin-bottom: 30px;
+      color: #0b2341;
+      text-align: center;
+      font-weight: 700;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0b2341;
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 10px; /* Margin azaltıldı */
+      transition: all 0.3s ease;
+    }
+    
+    .login-btn:hover {
+      background: #0c8da0;
+      transform: translateY(-3px);
+    }
+    
+    .login-type-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .login-type-btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      border-radius: 50px;
+      color: var(--primary-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .login-type-btn.active {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    
+    .register-link {
+      margin-top: 25px;
+      text-align: center;
+    }
+    
+    .register-link a {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    /* Home link */
+    .home-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+    
+    .home-link a {
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .home-link i {
+      margin-right: 5px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Home link -->
+  <div class="home-link">
+    <a href="/">
+      <i class="bi bi-arrow-left-circle"></i> Back to Home
+    </a>
+  </div>
+
+  <section class="login-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+          <div class="login-container" data-aos="fade-up">
+            <h2 class="login-heading">Login to EventSphere</h2>
+            
+            <div class="login-type-selector">
+              <button type="button" id="userBtn" class="login-type-btn active">Regular User</button>
+              <button type="button" id="OrganizatorBtn" class="login-type-btn">Organizator</button>
+            </div>
+            
+            <form id="loginForm">
+              <div class="form-group">
+                <label for="loginEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="loginEmail" placeholder="example@gmail.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+              </div>
+              
+              <!-- "Remember me" checkbox kaldırıldı -->
+              
+              <button type="submit" class="login-btn" id="loginButton">Login</button>
+            </form>
+            
+            <div class="register-link">
+              <p>Don't have an account? <a href="/register.html">Register here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  
+  <!-- Login Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const userBtn = document.getElementById('userBtn');
+    const organizatorBtn = document.getElementById('OrganizatorBtn');
+    const loginButton = document.getElementById('loginButton');
+    let userType = 'normal'; // Default user type
+
+    userBtn.addEventListener('click', function() {
+      userBtn.classList.add('active');
+      organizatorBtn.classList.remove('active');
+      loginButton.textContent = "Login as User";
+      userType = 'normal';
+    });
+
+    organizatorBtn.addEventListener('click', function() {
+      organizatorBtn.classList.add('active');
+      userBtn.classList.remove('active');
+      loginButton.textContent = "Login as Organizator";
+      userType = 'organizator';
+    });
+
+    // Form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      // API call for login
+      const loginUrl = `http://localhost:5000/api/auth/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&user_type=${userType}`;
+      fetch(loginUrl)
+        .then(response => response.json())
+        .then(apiResponse => {
+          if (apiResponse.status === "success") {
+            const userData = apiResponse.data;
+
+            // Save token and user info in localStorage
+            localStorage.setItem('userToken', userData.token);
+            localStorage.setItem('userName', userData.name);
+            localStorage.setItem('userEmail', userData.email);
+            localStorage.setItem('userId', userData.id); // Store userId
+            localStorage.setItem('userType', userType);
+            localStorage.setItem('userLoggedIn', 'true');
+
+            // Redirect to the appropriate dashboard
+            if (userType === 'normal') {
+              window.location.href = '/htmlFiles/user_dashboard.html';
+            } else if (userType === 'organizator') {
+              window.location.href = '/htmlFiles/organizator_dashboard.html';
+            }
+          } else {
+            alert(apiResponse.message || "Login failed. Please try again.");
+          }
+        })
+        .catch(error => {
+          console.error("Error during login:", error);
+          alert("An error occurred while logging in. Please try again.");
+        });
+    });
+
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  });
+  </script>
+</body>
+
+</html>
